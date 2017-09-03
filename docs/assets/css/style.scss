@@ -3,9 +3,75 @@
 
 
 
+body, h1, h2 {
+  font-size: 20px;
+  line-height: 2.2;
+}
+
 body {
   color: #000;
   background-color: #fff;
-  font-size: 20px;
-  font-family: Lucida Console, Courier New, Courier, monospace;
+  font-family: Times New Roman, Times, serif;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+section.title {
+}
+
+section {
+  margin: 1in;
+  max-width: 36em;
+  text-indent: 2em;
+}
+
+h1, h2, blockquote {
+  text-align: center;
+  margin: 0;
+}
+h1 {
+  margin-top: 400px;
+}
+h2 {
+  margin-top: 200px;
+  margin-bottom: 20px;
+  font-weight: normal;
+}
+blockquote {
+  margin-bottom: 300px;
+}
+
+hr {
+  color: #000;
+  text-align: center;
+  border: none;
+  width: 100%;
+  text-indent: 0;
+  margin: 0;
+}
+hr:before {
+  display: inline;
+  content: "# # #";
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background-color: #eee;
+}
+header div {
+  text-align: right;
+  padding-right: 1in;
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  background-color: #eee;
 }
