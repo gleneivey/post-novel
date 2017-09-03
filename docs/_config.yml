@@ -1,0 +1,10 @@
+title: Post
+description: A novel written in #NaNoWriMo2017
+
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
