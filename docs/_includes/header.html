@@ -1,10 +1,16 @@
 <div>
-  Ivey - <i>Post</i> -
-  <script type="text/javascript">insertPageNum();</script>
+  Ivey - <i>Post</i>
+  <script type="text/javascript">
+    if (pageNum) {
+      document.writeln("- " + pageNum);
+    }
+  </script>
 </div>
 
 <script type="text/javascript">
-  var el = document.getElementsByTagName("title").item(0);
-  el.innerHTML = el.innerHTML + " - " + pageNum;
+  if (pageNum) {
+    var el = document.getElementsByTagName("title").item(0);
+    el.innerHTML = el.innerHTML + " - " + pageNum;
+  }
 </script>
 

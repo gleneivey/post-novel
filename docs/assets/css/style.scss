@@ -75,3 +75,20 @@ footer {
   text-align: center;
   background-color: #eee;
 }
+
+
+.title-page {
+  background-image: url('/post-novel/assets/images/cover.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-color: #000;
+  color: #fff;
+}
+
+.title-page h1 {
+  font-size: 46px;
+}
+.title-page blockquote {
+  font-size: 36px;
+}
