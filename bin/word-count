@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+require 'digest'
+require 'twitter'
+
+
+file_paths = Dir['docs/?.md', 'docs/??.md']
+word_count_command = 'wc ' + file_paths.join(' ')
+results = `#{word_count_command}`.
+    split("\n").
+    map {|line| puts line ; line.strip}
+
+total_count = results.last.to_i
+
+
+
+name = ENV['NANOWRIMO_NAME']
+secret = ENV['NANOWRIMO_SECRET_KEY']
+info_string = "#{secret}#{name}#{total_count}"
+hash = Digest::SHA1.hexdigest info_string
+curl = "curl -H 'Content-Length: 0' -X PUT   'https://nanowrimo.org/api/wordcount?name=#{name}&wordcount=#{total_count}&hash=#{hash}'"
+
+
+
+key = ENV['TWITTER_KEY']
+key_secret = ENV['TWITTER_KEY_SECRET']
+token = ENV['TWITTER_TOKEN']
+token_secret = ENV['TWITTER_TOKEN_SECRET']
+
+config = {
+    consumer_key: key, consumer_secret: key_secret,
+    access_token: token, access_token_secret: token_secret
+ }
+
+Twitter::REST::Client.
+    new(config).
+    update("#NaNoWriMo Word count for \"Post\" is now #{total_count}. WIP at https://gleneivey.github.io/post-novel #AmWriting")
