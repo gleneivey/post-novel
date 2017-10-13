@@ -10,7 +10,8 @@ results = `#{word_count_command}`.
     split("\n").
     map {|line| puts line ; line.strip}
 
-total_count = results.last.to_i
+totals = results.last.split(/\s+/)
+total_count = totals[1].to_i
 
 
 
