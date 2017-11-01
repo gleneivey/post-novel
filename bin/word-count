@@ -8,11 +8,11 @@ file_paths = Dir['docs/?.md', 'docs/??.md']
 word_count_command = 'wc ' + file_paths.join(' ')
 results = `#{word_count_command}`.
     split("\n").
-    map {|line| puts line ; line.strip}
+    map {|line| line.strip}
 
 totals = results.last.split(/\s+/)
 total_count = totals[1].to_i
-
+puts "#{total_count} words"
 
 
 name = ENV['NANOWRIMO_NAME']
