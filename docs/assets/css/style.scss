@@ -40,9 +40,6 @@ h2 {
   margin-bottom: 20px;
   font-weight: normal;
 }
-blockquote {
-  margin-bottom: 180px;
-}
 
 hr {
   color: #000;
@@ -50,7 +47,7 @@ hr {
   border: none;
   width: 100%;
   text-indent: 0;
-  margin: 0;
+  margin: 40px;
 }
 hr:before {
   display: inline;
@@ -74,6 +71,7 @@ footer {
   width: 100%;
   text-align: center;
   background-color: #eee;
+  margin-top: 300px;
 }
 
 
