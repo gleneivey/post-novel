@@ -9,6 +9,7 @@ h1, h2 {
 }
 
 body {
+  position: relative;
   font-size: 20px;
   line-height: 2.2;
   color: #000;
@@ -98,7 +99,26 @@ footer {
   font-size: 36px;
 }
 
-/*   spivak pronoun table at start of part 1   */
+
+/*****   footnotes   *****/
+.to-note {
+  font-size: 80%;
+  font-weight: bold;
+  position: relative;
+  top: -7px;
+}
+#footnote {
+  position: absolute;
+  display: none;
+  z-index: 1;
+  background-color: #ddddff;
+  width: 400px;
+  border-radius: 30px;
+  line-height: 1em;
+  padding: 8px;
+}
+
+/*****   spivak pronoun table at start of part 1   *****/
 #spivak {
   margin-top: 200px;
 }

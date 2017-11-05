@@ -14,8 +14,9 @@ function recursivelyProcessTextEls(nontextEl) {
 recursivelyProcessTextEls(body);
 
 var footnotesUsed = [];
+var footnoteMap = {};
 function recursivelySubstituteIntoText(done, toDo) {
-  var match = toDo.match(/^(.*?)\[\[([!@#$%^&*)(]+)\]\](.*)$/);
+  var match = toDo.match(/^(.*?)\[\[([!@#$%^&*)(]+)\]\](.*)$/m);
   if (match) {
     var plainString = match[1];
     var noteIndex = match[2];
@@ -23,6 +24,7 @@ function recursivelySubstituteIntoText(done, toDo) {
 
     var noteNum = punctToNum(noteIndex);
     footnotesUsed.push({ noteNum: noteNum, note: footnoteContent[noteIndex] });
+    footnoteMap[noteNum] = footnoteContent[noteIndex];
 
     done += plainString;
     done += "<a class='to-note' href='#' id='to-note" + noteNum + "'>";
@@ -54,4 +56,35 @@ textEls.forEach(function (textEl) {
 
 // add used footnote text into DOM
 footnotesUsed.forEach(function (footnote) {
+//console.log(footnote);
 });
+
+var noteEls = document.getElementsByClassName("to-note");
+for (var c=0; c < noteEls.length; c++) {
+  var noteNum = noteEls[c].text;
+  var handler = function (event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var el = event.target;
+    var targetRect = el.getBoundingClientRect();
+
+    var fn = document.getElementById("footnote");
+    fn.setAttribute("style", "display: block");
+    fn.innerText = footnoteMap[noteNum];
+    var fnRect = fn.getBoundingClientRect();
+
+    fn.setAttribute("style", "display: block; " +
+        "top: " + ((targetRect.top - 30) - fnRect.top) +
+        "px; left: " + ((targetRect.left + 12) - fnRect.left) + "px");
+  };
+  noteEls[c].addEventListener("click", handler);
+}
+
+var clearHandler = function () {
+  var fn = document.getElementById("footnote");
+  fn.setAttribute("style", "display: none");
+  fn.innerText = "";
+};
+body.addEventListener("click", clearHandler);
+body.addEventListener("keydown", clearHandler);
