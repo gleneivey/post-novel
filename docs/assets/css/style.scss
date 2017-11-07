@@ -28,7 +28,12 @@ section.title {
 section {
   margin: 1in;
   max-width: 36em;
+}
+section p {
   text-indent: 2em;
+}
+blockquote p {
+  text-indent: 0;
 }
 
 h1, h2, blockquote {
@@ -53,7 +58,7 @@ hr {
   border: none;
   width: 100%;
   text-indent: 0;
-  margin: 40px;
+  margin: 40px 0;
 }
 hr:before {
   display: inline;
@@ -131,9 +136,11 @@ footer {
 }
 .spivak .left {
   text-align: right;
+  padding-right: 10px;
 }
 .spivak .right {
   text-align: left;
+  padding-left: 10px;
 }
 .spivak th, .spivak td {
   width: 300px;
