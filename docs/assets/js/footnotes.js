@@ -13,5 +13,6 @@ function punctToNum(punctString) {
 }
 
 var footnoteContent = {
-  "!": "A \"nibling\" is the child of a person's sibling."
+  "!": "A \"nibling\" is the child of a person's sibling.",
+  "@": "Mas is the second-youngest of eir four children, introduced in one of the middle chapters of Part 1 that isn't written yet."
 };
