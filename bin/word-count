@@ -4,7 +4,7 @@ require 'digest'
 require 'twitter'
 
 
-file_paths = Dir['docs/?.md', 'docs/??.md']
+file_paths = Dir['docs/??.md']
 word_count_command = "sed -e 's/<[^>]*>//g' #{file_paths.join(' ')} | wc"
 results = `#{word_count_command}`.
     split("\n").
