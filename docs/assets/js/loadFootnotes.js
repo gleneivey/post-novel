@@ -16,11 +16,11 @@ recursivelyProcessTextEls(body);
 var footnotesUsed = [];
 var footnoteMap = {};
 function recursivelySubstituteIntoText(done, toDo) {
-  var match = toDo.match(/^(.*?)\[\[([!@#$%^&*)(]+)\]\](.*)$/m);
+  var match = toDo.match(/^((.|\n)*?)\[\[([!@#$%^&*)(]+)\]\]((.|\n)*)$/);
   if (match) {
     var plainString = match[1];
-    var noteIndex = match[2];
-    var unprocessedString = match[3];
+    var noteIndex = match[3];
+    var unprocessedString = match[4];
 
     var noteNum = punctToNum(noteIndex);
     footnotesUsed.push({ noteNum: noteNum, note: footnoteContent[noteIndex] });
