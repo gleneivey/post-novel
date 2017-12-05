@@ -15,13 +15,15 @@ total_count = totals[1].to_i
 puts "#{total_count} words"
 
 
-
-name = ENV['NANOWRIMO_NAME']
-secret = ENV['NANOWRIMO_SECRET_KEY']
-info_string = "#{secret}#{name}#{total_count}"
-hash = Digest::SHA1.hexdigest info_string
-curl = "curl -H 'Content-Length: 0' -X PUT   'https://nanowrimo.org/api/wordcount?name=#{name}&wordcount=#{total_count}&hash=#{hash}'"
-system(curl)
+if @still_during_november
+  name = ENV['NANOWRIMO_NAME']
+  secret = ENV['NANOWRIMO_SECRET_KEY']
+  info_string = "#{secret}#{name}#{total_count}"
+  hash = Digest::SHA1.hexdigest info_string
+  curl = "curl -H 'Content-Length: 0' -X PUT   'https://nanowrimo.org/api/wordcount?name=#{name}&wordcount=#{total_count}&hash=#{hash}'"
+  system(curl)
+  puts "    updated at nanowrimo.org"
+end
 
 
 key = ENV['TWITTER_KEY']
@@ -36,6 +38,7 @@ config = {
 
 Twitter::REST::Client.
     new(config).
-    update("#NaNoWriMo Word count for \"Post\" is now #{total_count}. WIP at https://gleneivey.github.io/post-novel #AmWriting")
+    update("Word count for zeroth draft of my novel \"Post\" is now #{total_count}. WIP at https://gleneivey.github.io/post-novel #AmWriting")
 
+puts "    updated on twitter"
 puts
