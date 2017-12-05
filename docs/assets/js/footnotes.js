@@ -14,5 +14,6 @@ function punctToNum(punctString) {
 
 var footnoteContent = {
   "!": "A \"nibling\" is the child of a person's sibling.",
-  "@": "Mas is the second-youngest of eir four children, introduced in one of the middle chapters of Part 1 that isn't written yet."
+  "@": "Mas is the second-youngest of eir four children, introduced in one of the middle chapters of Part 1 that isn't written yet.",
+  "#": "\"prosopopoeia\": noun; personification, as of inanimate things; a figure of speech in which an imaginary, absent, or deceased person is represented as speaking or acting."
 };
